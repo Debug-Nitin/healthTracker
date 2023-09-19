@@ -43,7 +43,7 @@ router.post('/newExercise', passport.authenticate('jwt', { session: false }), (r
 router.get('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
   const token = getToken(req.headers);
   if (token) {
-    console.log('user is loggd in to the get route user:id');
+    console.log('user is logged in to the get route user:id');
     db.User.findUserById(req, res);
   } else {
     return res.status(403).send({ success: false, msg: 'Unauthorized.' });
